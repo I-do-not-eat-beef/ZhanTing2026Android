@@ -1,0 +1,505 @@
+[{
+		"module": "灯",
+		"control_devices": [{
+				"device_ip": "192.168.5.209:50000",
+				"device_name": "灯控上",
+				"once_control": [
+					"00 00 00 00 00 09 01 0F 00 00 00 10 02 FF FF",
+					"00 00 00 00 00 09 01 0F 00 00 00 10 02 00 00"
+				],
+				"terminal_devices": [{
+						"terminal_name": "ALL",
+						"terminal_open": "00 00 00 00 00 09 01 0F 00 00 00 10 02 FF FF",
+						"terminal_close": "00 00 00 00 00 09 01 0F 00 00 00 10 02 00 00"
+					},
+					{
+						"terminal_name": "灯槽灯",
+						"terminal_open": "00 00 00 00 00 06 01 05 00 00 FF 00",
+						"terminal_close": "00 00 00 00 00 06 01 05 00 00 00 00"
+					},
+					{
+						"terminal_name": "宣传片顶部硅胶灯带",
+						"terminal_open": "00 00 00 00 00 06 01 05 00 01 FF 00",
+						"terminal_close": "00 00 00 00 00 06 01 05 00 01 00 00"
+					},
+					{
+						"terminal_name": "宣传片顶部筒灯",
+						"terminal_open": "00 00 00 00 00 06 01 05 00 02 FF 00",
+						"terminal_close": "00 00 00 00 00 06 01 05 00 02 00 00"
+					},
+					{
+						"terminal_name": "宣传片顶部格栅长灯",
+						"terminal_open": "00 00 00 00 00 06 01 05 00 03 FF 00",
+						"terminal_close": "00 00 00 00 00 06 01 05 00 03 00 00"
+					},
+					{
+						"terminal_name": "需求侧射灯",
+						"terminal_open": "00 00 00 00 00 06 01 05 00 04 FF 00",
+						"terminal_close": "00 00 00 00 00 06 01 05 00 04 00 00"
+					},
+					{
+						"terminal_name": "墙面字体灯/线条灯",
+						"terminal_open": "00 00 00 00 00 06 01 05 00 05 FF 00",
+						"terminal_close": "00 00 00 00 00 06 01 05 00 05 00 00"
+					},
+					{
+						"terminal_name": "需求侧顶部格栅灯",
+						"terminal_open": "00 00 00 00 00 06 01 05 00 06 FF 00",
+						"terminal_close": "00 00 00 00 00 06 01 05 00 06 00 00"
+					},
+					{
+						"terminal_name": "门厅轮廓灯",
+						"terminal_open": "00 00 00 00 00 06 01 05 00 07 FF 00",
+						"terminal_close": "00 00 00 00 00 06 01 05 00 07 00 00"
+					},
+					{
+						"terminal_name": "需求侧墙面字灯/线条灯",
+						"terminal_open": "00 00 00 00 00 06 01 05 00 08 FF 00",
+						"terminal_close": "00 00 00 00 00 06 01 05 00 08 00 00"
+					},
+					{
+						"terminal_name": "概念软膜",
+						"terminal_open": "00 00 00 00 00 06 01 05 00 09 FF 00",
+						"terminal_close": "00 00 00 00 00 06 01 05 00 09 00 00"
+					},
+					{
+						"terminal_name": "尾厅硅胶轮廓灯",
+						"terminal_open": "00 00 00 00 00 06 01 05 00 0A FF 00",
+						"terminal_close": "00 00 00 00 00 06 01 05 00 0A 00 00"
+					},
+					{
+						"terminal_name": "尾厅顶部轮廓灯/星空顶",
+						"terminal_open": "00 00 00 00 00 06 01 05 00 0B FF 00",
+						"terminal_close": "00 00 00 00 00 06 01 05 00 0B 00 00"
+					}
+				]
+			},
+			{
+				"device_ip": "192.168.5.210:50000",
+				"device_name": "灯控下",
+				"once_control": [
+					"00 00 00 00 00 09 01 0F 00 00 00 10 02 FF FF",
+					"00 00 00 00 00 09 01 0F 00 00 00 10 02 00 00"
+				],
+				"terminal_devices": [{
+						"terminal_name": "ALL",
+						"terminal_open": "00 00 00 00 00 09 01 0F 00 00 00 10 02 FF FF",
+						"terminal_close": "00 00 00 00 00 09 01 0F 00 00 00 10 02 00 00"
+					},
+					{
+						"terminal_name": "概念顶部筒灯",
+						"terminal_open": "00 00 00 00 00 06 01 05 00 00 FF 00",
+						"terminal_close": "00 00 00 00 00 06 01 05 00 00 00 00"
+					},
+					{
+						"terminal_name": "概念字体灯",
+						"terminal_open": "00 00 00 00 00 06 01 05 00 02 FF 00",
+						"terminal_close": "00 00 00 00 00 06 01 05 00 02 00 00"
+					},
+					{
+						"terminal_name": "尾厅顶部格栅灯",
+						"terminal_open": "00 00 00 00 00 06 01 05 00 04 FF 00",
+						"terminal_close": "00 00 00 00 00 06 01 05 00 04 00 00"
+					},
+					{
+						"terminal_name": "载体顶部筒灯",
+						"terminal_open": "00 00 00 00 00 06 01 05 00 05 FF 00",
+						"terminal_close": "00 00 00 00 00 06 01 05 00 05 00 00"
+					},
+					{
+						"terminal_name": "尾厅字体/轮廓灯",
+						"terminal_open": "00 00 00 00 00 06 01 05 00 06 FF 00",
+						"terminal_close": "00 00 00 00 00 06 01 05 00 06 00 00"
+					},
+					{
+						"terminal_name": "品牌字体灯",
+						"terminal_open": "00 00 00 00 00 06 01 05 00 08 FF 00",
+						"terminal_close": "00 00 00 00 00 06 01 05 00 08 00 00"
+					},
+					{
+						"terminal_name": "驾驶舱顶部筒灯",
+						"terminal_open": "00 00 00 00 00 06 01 05 00 09 FF 00",
+						"terminal_close": "00 00 00 00 00 06 01 05 00 09 00 00"
+					}
+				]
+			}
+		]
+	},
+	{
+		"module": "拼接屏",
+		"control_devices": [{
+			"device_ip": "192.168.5.249:50000",
+			"device_name": "拼控空开",
+			"once_control": [
+				"00 00 00 00 00 09 01 0F 00 00 00 10 02 FF FF",
+				"00 00 00 00 00 09 01 0F 00 00 00 10 02 00 00"
+			],
+			"terminal_devices": [{
+					"terminal_name": "ALL",
+					"terminal_open": "00 00 00 00 00 09 01 0F 00 00 00 10 02 FF FF",
+					"terminal_close": "00 00 00 00 00 09 01 0F 00 00 00 10 02 00 00"
+				},
+				{
+					"terminal_name": "供给侧",
+					"terminal_open": "00 00 00 00 00 06 01 05 00 05 FF 00",
+					"terminal_close": "00 00 00 00 00 06 01 05 00 05 00 00"
+				},
+				{
+					"terminal_name": "需求侧",
+					"terminal_open": "00 00 00 00 00 06 01 05 00 04 FF 00",
+					"terminal_close": "00 00 00 00 00 06 01 05 00 04 00 00"
+				},
+				{
+					"terminal_name": "大事记 - 左",
+					"terminal_open": "00 00 00 00 00 06 01 05 00 00 FF 00",
+					"terminal_close": "00 00 00 00 00 06 01 05 00 00 00 00"
+				},
+				{
+					"terminal_name": "大事记 - 中",
+					"terminal_open": "00 00 00 00 00 06 01 05 00 01 FF 00",
+					"terminal_close": "00 00 00 00 00 06 01 05 00 01 00 00"
+				},
+				{
+					"terminal_name": "大事记 - 右",
+					"terminal_open": "00 00 00 00 00 06 01 05 00 02 FF 00",
+					"terminal_close": "00 00 00 00 00 06 01 05 00 02 00 00"
+				},
+				{
+					"terminal_name": "安卓屏",
+					"terminal_open": "00 00 00 00 00 06 01 05 00 03 FF 00",
+					"terminal_close": "00 00 00 00 00 06 01 05 00 03 00 00"
+				}
+			]
+		}]
+	},
+	{
+		"module": "利亚德",
+		"control_devices": [{
+				"device_ip": "192.168.5.203:6666",
+				"device_name": "",
+				"terminal_devices": [{
+					"terminal_name": "欢迎屏/驾驶舱",
+					"terminal_open": "3A 30 30 31 30 30 30 42 30 30 30 30 31 30 30 30 31 33 45 0D 0A",
+					"terminal_close": "3A 30 30 31 30 30 30 42 30 30 30 30 31 30 30 30 32 33 44 0D 0A"
+				}]
+			},
+			{
+				"device_ip": "192.168.5.204:6666",
+				"device_name": "",
+				"terminal_devices": [{
+					"terminal_name": "宣传片",
+					"terminal_open": "3A 30 30 31 30 30 30 42 30 30 30 30 31 30 30 30 31 33 45 0D 0A",
+					"terminal_close": "3A 30 30 31 30 30 30 42 30 30 30 30 31 30 30 30 32 33 44 0D 0A"
+				}]
+			},
+			{
+				"device_ip": "192.168.5.205:6666",
+				"device_name": "",
+				"terminal_devices": [{
+					"terminal_name": "服务侧",
+					"terminal_open": "3A 30 30 31 30 30 30 42 30 30 30 30 31 30 30 30 31 33 45 0D 0A",
+					"terminal_close": "3A 30 30 31 30 30 30 42 30 30 30 30 31 30 30 30 32 33 44 0D 0A"
+				}]
+			},
+			{
+				"device_ip": "192.168.5.206:6666",
+				"device_name": "",
+				"terminal_devices": [{
+					"terminal_name": "载体",
+					"terminal_open": "3A 30 30 31 30 30 30 42 30 30 30 30 31 30 30 30 31 33 45 0D 0A",
+					"terminal_close": "3A 30 30 31 30 30 30 42 30 30 30 30 31 30 30 30 32 33 44 0D 0A"
+				}]
+			}
+		]
+	},
+	{
+		"module": "时序器",
+		"control_devices": [{
+				"device_ip": "192.168.5.254:20108",
+				"device_name": "主控室",
+				"terminal_devices": [{
+						"terminal_name": "1",
+						"terminal_open": "a0 01 a9 93 01 01 b1",
+						"terminal_close": "a0 01 a9 93 01 00 b1"
+					},
+					{
+						"terminal_name": "2",
+						"terminal_open": "a0 01 a9 93 02 01 b1",
+						"terminal_close": "a0 01 a9 93 02 00 b1"
+					},
+					{
+						"terminal_name": "3",
+						"terminal_open": "a0 01 a9 93 03 01 b1",
+						"terminal_close": "a0 01 a9 93 03 00 b1"
+					},
+					{
+						"terminal_name": "4",
+						"terminal_open": "a0 01 a9 93 04 01 b1",
+						"terminal_close": "a0 01 a9 93 04 00 b1"
+					},
+					{
+						"terminal_name": "5",
+						"terminal_open": "a0 01 a9 93 05 01 b1",
+						"terminal_close": "a0 01 a9 93 05 00 b1"
+					},
+					{
+						"terminal_name": "6",
+						"terminal_open": "a0 01 a9 93 06 01 b1",
+						"terminal_close": "a0 01 a9 93 06 00 b1"
+					},
+					{
+						"terminal_name": "7",
+						"terminal_open": "a0 01 a9 93 07 01 b1",
+						"terminal_close": "a0 01 a9 93 07 00 b1"
+					},
+					{
+						"terminal_name": "8",
+						"terminal_open": "a0 01 a9 93 08 01 b1",
+						"terminal_close": "a0 01 a9 93 08 00 b1"
+					}
+				]
+			},
+			{
+				"device_ip": "192.168.5.220:20108",
+				"device_name": "副控室",
+				"terminal_devices": [{
+						"terminal_name": "1",
+						"terminal_open": "a0 01 a9 93 01 01 b1",
+						"terminal_close": "a0 01 a9 93 01 00 b1"
+					},
+					{
+						"terminal_name": "2",
+						"terminal_open": "a0 01 a9 93 02 01 b1",
+						"terminal_close": "a0 01 a9 93 02 00 b1"
+					},
+					{
+						"terminal_name": "3",
+						"terminal_open": "a0 01 a9 93 03 01 b1",
+						"terminal_close": "a0 01 a9 93 03 00 b1"
+					},
+					{
+						"terminal_name": "4",
+						"terminal_open": "a0 01 a9 93 04 01 b1",
+						"terminal_close": "a0 01 a9 93 04 00 b1"
+					},
+					{
+						"terminal_name": "5",
+						"terminal_open": "a0 01 a9 93 05 01 b1",
+						"terminal_close": "a0 01 a9 93 05 00 b1"
+					},
+					{
+						"terminal_name": "6",
+						"terminal_open": "a0 01 a9 93 06 01 b1",
+						"terminal_close": "a0 01 a9 93 06 00 b1"
+					},
+					{
+						"terminal_name": "7",
+						"terminal_open": "a0 01 a9 93 07 01 b1",
+						"terminal_close": "a0 01 a9 93 07 00 b1"
+					},
+					{
+						"terminal_name": "8",
+						"terminal_open": "a0 01 a9 93 08 01 b1",
+						"terminal_close": "a0 01 a9 93 08 00 b1"
+					}
+				]
+			}
+		]
+	},
+	{
+		"module": "电视",
+		"control_devices": [{
+				"device_ip": "192.168.5.207:10000",
+				"device_name": "主机房端",
+				"once_control": [
+					"01 0F 00 00 00 10 02 FF FF E3 90",
+					"01 0F 00 00 00 10 02 00 00 E2 20"
+				],
+				"terminal_devices": [{
+						"terminal_name": "企业图谱",
+						"terminal_open": "01 05 00 00 FF 00 8C 3A",
+						"terminal_close": "01 05 00 00 00 00 CD CA"
+					},
+					{
+						"terminal_name": "概念验证",
+						"terminal_open": "01 05 00 05 FF 00 9C 3B",
+						"terminal_close": "01 05 00 05 00 00 DD CB"
+					}
+				]
+			},
+			{
+				"device_ip": "192.168.5.208:10000",
+				"device_name": "副机房端",
+				"once_control": [
+					"01 0F 00 00 00 10 02 FF FF E3 90",
+					"01 0F 00 00 00 10 02 00 00 E2 20"
+				],
+				"terminal_devices": [{
+						"terminal_name": "145行动",
+						"terminal_open": "01 05 00 00 FF 00 8C 3A",
+						"terminal_close": "01 05 00 00 00 00 CD CA"
+					},
+					{
+						"terminal_name": "发展历程",
+						"terminal_open": "01 05 00 05 FF 00 9C 3B",
+						"terminal_close": "01 05 00 05 00 00 DD CB"
+					},
+					{
+						"terminal_name": "成果图谱",
+						"terminal_open": "01 05 00 0A FF 00 AC 38",
+						"terminal_close": "01 05 00 0A 00 00 ED C8"
+					},
+					{
+						"terminal_name": "科技金融",
+						"terminal_open": "01 05 00 03 FF 00 7C 3A",
+						"terminal_close": "01 05 00 03 00 00 3D CA"
+					},
+					{
+						"terminal_name": "科技服务",
+						"terminal_open": "01 05 00 09 FF 00 5C 38",
+						"terminal_close": "01 05 00 09 00 00 1D C8"
+					},
+					{
+						"terminal_name": "机构人才",
+						"terminal_open": "01 05 00 04 FF 00 CD FB",
+						"terminal_close": "01 05 00 04 00 00 8C 0B"
+					},
+					{
+						"terminal_name": "政策支撑",
+						"terminal_open": "01 05 00 01 FF 00 DD FA",
+						"terminal_close": "01 05 00 01 00 00 9C 0A"
+					},
+					{
+						"terminal_name": "品牌宣传",
+						"terminal_open": "01 05 00 06 FF 00 6C 3B",
+						"terminal_close": "01 05 00 06 00 00 2D CB"
+					}
+				]
+			}
+		]
+	},
+	{
+		"module": "OPS",
+		"control_devices": [{
+				"device_ip": "",
+				"device_name": "台式机",
+				"terminal_devices": [{
+						"terminal_name": "欢迎主机",
+						"terminal_open": "192.168.5.214",
+						"terminal_close": ""
+					},
+					{
+						"terminal_name": "智能导览",
+						"terminal_open": "192.168.5.221",
+						"terminal_close": ""
+					},
+					{
+						"terminal_name": "宣传主机",
+						"terminal_open": "192.168.5.213",
+						"terminal_close": ""
+					},
+					{
+						"terminal_name": "供给主机",
+						"terminal_open": "192.168.5.217",
+						"terminal_close": ""
+					},
+					{
+						"terminal_name": "需求主机",
+						"terminal_open": "192.168.5.202",
+						"terminal_close": ""
+					},
+					{
+						"terminal_name": "服务主机",
+						"terminal_open": "192.168.5.211",
+						"terminal_close": ""
+					},
+					{
+						"terminal_name": "载体主机",
+						"terminal_open": "192.168.5.212",
+						"terminal_close": ""
+					},
+					{
+						"terminal_name": "载体控制主机",
+						"terminal_open": "192.168.5.219",
+						"terminal_close": ""
+					},
+					{
+						"terminal_name": "安卓屏主机",
+						"terminal_open": "192.168.5.215",
+						"terminal_close": ""
+					},
+					{
+						"terminal_name": "驾驶舱主机",
+						"terminal_open": "192.168.5.218",
+						"terminal_close": ""
+					},
+					{
+						"terminal_name": "签名主机",
+						"terminal_open": "192.168.5.222",
+						"terminal_close": ""
+					},
+					{
+						"terminal_name": "大事记主机",
+						"terminal_open": "192.168.5.250",
+						"terminal_close": ""
+					}
+				]
+			},
+			{
+				"device_ip": "",
+				"device_name": "TV",
+				"terminal_devices": [{
+						"terminal_name": "145主机",
+						"terminal_open": "",
+						"terminal_close": "192.168.5.230"
+					},
+					{
+						"terminal_name": "发展主机",
+						"terminal_open": "",
+						"terminal_close": "192.168.5.229"
+					},
+					{
+						"terminal_name": "成果主机",
+						"terminal_open": "",
+						"terminal_close": "192.168.5.228"
+					},
+					{
+						"terminal_name": "企业主机",
+						"terminal_open": "",
+						"terminal_close": "192.168.5.227"
+					},
+					{
+						"terminal_name": "概念主机",
+						"terminal_open": "",
+						"terminal_close": "192.168.5.231"
+					},
+					{
+						"terminal_name": "金融主机",
+						"terminal_open": "",
+						"terminal_close": "192.168.5.226"
+					},
+					{
+						"terminal_name": "服务主机",
+						"terminal_open": "",
+						"terminal_close": "192.168.5.225"
+					},
+					{
+						"terminal_name": "机构主机",
+						"terminal_open": "",
+						"terminal_close": "192.168.5.224"
+					},
+					{
+						"terminal_name": "政策主机",
+						"terminal_open": "",
+						"terminal_close": "192.168.5.223"
+					},
+					{
+						"terminal_name": "品牌主机",
+						"terminal_open": "",
+						"terminal_close": "192.168.5.232"
+					}
+				]
+			}
+		]
+	}
+]
