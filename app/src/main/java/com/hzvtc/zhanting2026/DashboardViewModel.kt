@@ -4,7 +4,6 @@ import android.app.Application
 import android.content.Context
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.hzvtc.zhanting2026.data.ClientCommands
 import com.hzvtc.zhanting2026.data.ClientCommand
 import com.hzvtc.zhanting2026.data.ControlDevice
 import com.hzvtc.zhanting2026.data.ControlModule
@@ -461,6 +460,11 @@ class DashboardViewModel(application: Application) : AndroidViewModel(applicatio
 
     private suspend fun postSelectedClientCommand(command: ClientCommand) {
         val client = selectedClient()
+        if (!command.isAvailableFor(client)) {
+            addLog("${client.name} 不支持 ${command.label}，已跳过")
+            return
+        }
+
         val response = api.postForm(
             "http://${client.address}:8899/zhanting/toDo/${command.endpoint}",
             emptyMap()

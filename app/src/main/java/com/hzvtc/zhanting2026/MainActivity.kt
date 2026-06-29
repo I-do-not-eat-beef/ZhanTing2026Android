@@ -90,12 +90,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.hzvtc.zhanting2026.data.ClientCommands
 import com.hzvtc.zhanting2026.data.ClientCommand
 import com.hzvtc.zhanting2026.data.ControlDevice
 import com.hzvtc.zhanting2026.data.ControlModule
 import com.hzvtc.zhanting2026.data.DisplayDevices
 import com.hzvtc.zhanting2026.data.DisplayDevice
+import com.hzvtc.zhanting2026.data.clientCommandsFor
 import com.hzvtc.zhanting2026.ui.theme.ZhanTing2026Theme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -711,12 +711,12 @@ private fun ClientWorkbench(
             ClientSelector(
                 state = state,
                 onSelectClient = onSelectClient,
+                onCommand = onCommand,
                 modifier = Modifier.width(330.dp)
             )
             ClientDetail(
                 state = state,
                 tablet = true,
-                onCommand = onCommand,
                 onPickImage = onPickImage,
                 onUploadImage = onUploadImage,
                 onPreviewImage = onPreviewImage,
@@ -727,11 +727,14 @@ private fun ClientWorkbench(
         }
     } else {
         Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            ClientSelector(state = state, onSelectClient = onSelectClient)
+            ClientSelector(
+                state = state,
+                onSelectClient = onSelectClient,
+                onCommand = onCommand
+            )
             ClientDetail(
                 state = state,
                 tablet = false,
-                onCommand = onCommand,
                 onPickImage = onPickImage,
                 onUploadImage = onUploadImage,
                 onPreviewImage = onPreviewImage,
@@ -746,17 +749,21 @@ private fun ClientWorkbench(
 private fun ClientSelector(
     state: DashboardState,
     onSelectClient: (String) -> Unit,
+    onCommand: (ClientCommand) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Panel(modifier = modifier) {
         SectionTitle("单机客户端", "WinUI Client :8899")
         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
             DisplayDevices.forEach { device ->
-                ClientButton(
+                val selected = state.selectedClientAddr == device.address
+                ClientDeviceDrawer(
                     device = device,
-                    selected = state.selectedClientAddr == device.address,
+                    selected = selected,
                     online = state.onlineDevices.contains(device.address),
-                    onClick = { onSelectClient(device.address) }
+                    busy = state.isBusy,
+                    onClick = { onSelectClient(device.address) },
+                    onCommand = onCommand
                 )
             }
         }
@@ -764,7 +771,38 @@ private fun ClientSelector(
 }
 
 @Composable
-private fun ClientButton(device: DisplayDevice, selected: Boolean, online: Boolean, onClick: () -> Unit) {
+private fun ClientDeviceDrawer(
+    device: DisplayDevice,
+    selected: Boolean,
+    online: Boolean,
+    busy: Boolean,
+    onClick: () -> Unit,
+    onCommand: (ClientCommand) -> Unit
+) {
+    Column(verticalArrangement = Arrangement.spacedBy(if (selected) 6.dp else 0.dp)) {
+        ClientButton(
+            device = device,
+            selected = selected,
+            online = online,
+            onClick = onClick
+        )
+        if (selected) {
+            ClientCommandDrawer(
+                device = device,
+                busy = busy,
+                onCommand = onCommand
+            )
+        }
+    }
+}
+
+@Composable
+private fun ClientButton(
+    device: DisplayDevice,
+    selected: Boolean,
+    online: Boolean,
+    onClick: () -> Unit
+) {
     Surface(
         onClick = onClick,
         shape = AppShape,
@@ -788,10 +826,43 @@ private fun ClientButton(device: DisplayDevice, selected: Boolean, online: Boole
 }
 
 @Composable
+private fun ClientCommandDrawer(
+    device: DisplayDevice,
+    busy: Boolean,
+    onCommand: (ClientCommand) -> Unit
+) {
+    val commands = clientCommandsFor(device)
+    Surface(
+        shape = AppShape,
+        color = Color(0xF7F9FCF8),
+        border = BorderStroke(1.dp, Color(0x330E8F7A))
+    ) {
+        Column(Modifier.padding(12.dp)) {
+            SectionTitle("可用功能", "${commands.size} 项")
+            BoxWithConstraints(Modifier.fillMaxWidth()) {
+                val columns = if (maxWidth < 260.dp) 1 else 2
+                ResponsiveGrid(
+                    count = commands.size,
+                    columns = columns,
+                    horizontalSpacing = 8.dp,
+                    verticalSpacing = 8.dp
+                ) { index, itemModifier ->
+                    ClientCommandButton(
+                        command = commands[index],
+                        enabled = !busy,
+                        onClick = { onCommand(commands[index]) },
+                        modifier = itemModifier
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
 private fun ClientDetail(
     state: DashboardState,
     tablet: Boolean,
-    onCommand: (ClientCommand) -> Unit,
     onPickImage: () -> Unit,
     onUploadImage: () -> Unit,
     onPreviewImage: () -> Unit,
@@ -810,15 +881,6 @@ private fun ClientDetail(
             trailing = { StatusPill(if (online) "在线" else "未上报", online) }
         )
         Spacer(Modifier.height(14.dp))
-        ResponsiveGrid(count = ClientCommands.size, columns = if (tablet) 4 else 2) { index, itemModifier ->
-            ClientCommandButton(
-                command = ClientCommands[index],
-                enabled = !state.isBusy,
-                onClick = { onCommand(ClientCommands[index]) },
-                modifier = itemModifier
-            )
-        }
-        Spacer(Modifier.height(16.dp))
         ScreenshotPanel(state = state, onRefresh = onRefreshScreenshot)
         Spacer(Modifier.height(14.dp))
         if (tablet) {

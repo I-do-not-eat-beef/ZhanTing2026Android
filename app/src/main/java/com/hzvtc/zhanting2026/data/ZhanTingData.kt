@@ -30,8 +30,13 @@ data class DisplayDevice(
 data class ClientCommand(
     val label: String,
     val endpoint: String,
-    val danger: Boolean = false
-)
+    val danger: Boolean = false,
+    val deviceKeys: Set<String> = emptySet()
+) {
+    fun isAvailableFor(device: DisplayDevice): Boolean {
+        return deviceKeys.isEmpty() || device.key in deviceKeys
+    }
+}
 
 fun loadControlModules(context: Context): List<ControlModule> {
     val json = context.assets.open("control-devices.json").use { input ->
@@ -120,12 +125,19 @@ val ClientCommands = listOf(
     ClientCommand("音量 +", "enlargeSysVolume"),
     ClientCommand("音量 -", "reduceSysVolume"),
     ClientCommand("模拟双击", "simulateClick"),
-    ClientCommand("播放视频 1", "playVideo1"),
-    ClientCommand("播放视频 2", "playVideo2"),
-    ClientCommand("启动播放器", "startPlayVideo"),
-    ClientCommand("关闭播放器", "closeVideoPlayer"),
+    ClientCommand("播放视频 1", "playVideo1", deviceKeys = setOf(PROMO_VIDEO_KEY)),
+    ClientCommand("播放视频 2", "playVideo2", deviceKeys = setOf(PROMO_VIDEO_KEY)),
+    ClientCommand("启动播放器", "startPlayVideo", deviceKeys = setOf(WELCOME_SCREEN_KEY)),
+    ClientCommand("关闭播放器", "closeVideoPlayer", deviceKeys = setOf(WELCOME_SCREEN_KEY)),
     ClientCommand("刷新 KV", "setWallpaper"),
     ClientCommand("取消关机", "cancelPoweroff"),
     ClientCommand("重启单机", "rebootSys", danger = true),
     ClientCommand("关闭单机", "poweroff", danger = true)
 )
+
+fun clientCommandsFor(device: DisplayDevice): List<ClientCommand> {
+    return ClientCommands.filter { it.isAvailableFor(device) }
+}
+
+private const val WELCOME_SCREEN_KEY = "huanyingdaping"
+private const val PROMO_VIDEO_KEY = "xuanchuanpian"
