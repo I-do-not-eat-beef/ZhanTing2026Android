@@ -187,14 +187,6 @@ fun ZhanTingControlApp(viewModel: DashboardViewModel = viewModel()) {
                             )
                             StatusGrid(state = state, tablet = tablet)
                             AdbPanel(state = state, onWake = viewModel::wakeAndroidScreensOnly)
-                            HardwareWorkbench(
-                                state = state,
-                                tablet = tablet,
-                                onSelectModule = viewModel::selectModule,
-                                onModuleAction = viewModel::controlSelectedModule,
-                                onDeviceAction = viewModel::controlDevice,
-                                onTerminalAction = viewModel::controlTerminal
-                            )
                             ClientWorkbench(
                                 state = state,
                                 tablet = tablet,
@@ -205,6 +197,14 @@ fun ZhanTingControlApp(viewModel: DashboardViewModel = viewModel()) {
                                 onPreviewImage = viewModel::previewSelectedClientImage,
                                 onRefreshResources = viewModel::fetchSelectedClientResources,
                                 onRefreshScreenshot = viewModel::refreshScreenshotManually
+                            )
+                            HardwareWorkbench(
+                                state = state,
+                                tablet = tablet,
+                                onSelectModule = viewModel::selectModule,
+                                onModuleAction = viewModel::controlSelectedModule,
+                                onDeviceAction = viewModel::controlDevice,
+                                onTerminalAction = viewModel::controlTerminal
                             )
                             LogPanel(state = state)
                         }
